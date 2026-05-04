@@ -1,45 +1,80 @@
-# Obsidian AI Tagger Universe
+# Obsidian AI Tagger Universe 🌌
 
-借助 AI 对该插件进行改进 / Improved version of the plugin utilizing AI.
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://opensource.org/licenses/GPL-3.0)
+[![Obsidian Downloads](https://img.shields.io/badge/Obsidian-Plugin-purple.svg)](https://obsidian.md/)
 
-## English
-This plugin allows you to automatically tag your markdown files using LLMs.
+An intelligent tag management system for Obsidian, powered by Large Language Models (LLMs). Automatically clean, merge, and organize your vault's tags with semantic understanding.
 
-### New Features (Updated)
+---
 
-1. **AI Merge Similar Tags in Current Folder** 
-   - A new command "AI Merge Similar Tags in Current Folder" is available!
-   - When triggered, it will correctly identify the current folder you are operating in.
-   - It will show a confirmation modal with a 45-second countdown to ensure you want to send folder data.
-   - Once confirmed, it efficiently extracts tags via the native Obsidian `metadataCache` logic without heavy traversals.
-   - It logically bypasses the plugin's original hardcoded SYSTEM_PROMPT to supply an intelligent structure-driven analysis prompt, preventing prompt conflicts while maintaining core features.
-   - It delegates the merge strategy to the AI model using a predefined JSON prompt template, now enhanced with **filename contextual awareness** to better understand the domain.
-   - Intelligent data structure validations prevent unexpected outputs from disrupting plugin operations.
-   - Displays real-time progress via non-obtrusive `Notice` pop-ups.
-   - Allows users to review the AI suggestions in a clean list GUI and selectively apply updates globally across the vault.
-   - Command is fully bindable to custom hotkeys in Obsidian Settings.
+## 🌟 Key Features / 核心功能
 
-2. **Multiple LLM Provider Support (Patched Endpoints)**
-   - Fixed endpoint handling for various providers like Aliyun, Claude, Deepseek, Groq, OpenRouter, AWS Bedrock, Mistral, Requesty, Cohere, and Grok.
-   - No longer restricted to OpenAI compatible URLs, making configuration much simpler!
+### 1. Smart Tag Deduplication (AI Merge) / AI 智能标签合并
+- **Semantic Analysis**: Unlike simple string matching, it understands that `#DeepLearning` and `#deep-learning` (or even `#深度学习`) might be meant as the same tag.
+- **Folder Scoping**: Run the analysis on a specific folder to handle domain-specific tags safely.
+- **Interactive Review**: Review AI suggestions in a clear, modern GUI before applying changes.
+- **Global Replacement**: Once confirmed, the plugin automatically renames tags across your entire vault while deduplicating existing ones.
 
-## 中文 (Chinese)
-此插件可通过各家大语言模型 (LLM) 智能分析并为你的笔记自动生成、补全、或合并不一致的标签。
+### 2. Multi-Model Support / 多模型供应商支持
+- Broad compatibility with major LLM providers: **OpenAI, Claude (Anthropic), DeepSeek, Aliyun (Qwen), Groq, OpenRouter, AWS Bedrock, Mistral, Cohere, and more.**
+- Optimized API endpoint handling—no more manual URL hacking for non-OpenAI providers.
+- Custom temperature controls for merge sensitivity.
 
-### 新功能 (最近更新)
+### 3. Context-Aware Tagging / 上下文感知标签
+- Uses **filename and adjacent tag context** during analysis to ensure merging logic respects the specific topics of your notes.
+- Hardened parsing logic to handle complex vault structures without performance bottlenecks.
 
-1. **在当前文件夹内 AI 合并相似标签**
-   - 新增了 "AI 智能合并当前文件夹标签" (AI Merge Similar Tags in Current Folder) 命令。
-   - 当执行时，会弹窗请求操作所在的目录，附带撤销执行按钮和 45 秒倒计时自动关闭的安全机制。
-   - 用户确认后，通过原生的 `metadataCache` 提取标签，无需重型遍历，极大提高了检测效率。
-   - 巧妙绕过了原插件硬编码 System Prompt 导致的指令冲突，为合并任务下发了高强度的结构化判定词，互不影响核心功能。
-   - 采用 JSON 模板对提取的标签及其所在的**文件名上下文**进行组装，发送给大模型进行更精准的领域和语义合并分析。
-   - 增加了底层数据结构“硬拦截”校验，避免大模型输出杂乱内容导致应用崩溃。
-   - 全链路（分析标签、请求 AI、AI 接收与思考）提供友好轻量且不打扰的角标 `Notice` 提醒。
-   - AI 分析后，复用了非常友好的重命名视图界面，允许用户进行差异比对、合并并保留自己需要的原标签。
-   - 虽然合并建议基于当前文件夹，但**最终合并重命名操作将全局应用于整个 Obsidian 库**。
-   - 原生支持 Obsidian 快捷键绑定设置。
+---
 
-2. **完善的第三方 LLM 端点兼容**
-   - 彻底重写了包括 Deepseek、阿里云 (Qwen)、Claude、Groq、OpenRouter、AWS Bedrock 等 10+ 家 AI 供应商端点的 API Endpoint 生成逻辑。
-   - 避免了先前只能顺滑使用 OpenAI 或必须自行手拼复杂 Endpoint 的困境。
+## 🚀 Installation / 安装
+
+### Manual Installation
+1. Download the `main.js`, `manifest.json`, and `styles.css` from the [Latest Release](https://github.com/your-repo/releases).
+2. Create a folder named `ai-tagger-universe` in your vault's `.obsidian/plugins/` directory.
+3. Move the downloaded files into that folder.
+4. Go to **Obsidian Settings > Community Plugins** and enable "AI Tagger Universe".
+
+---
+
+## 📖 Usage / 使用说明
+
+### 🧹 Deduplicating Tags (Merge Similar)
+1. **Right-click** on any folder in your file explorer.
+2. Select **"AI Merge Similar Tags in this Folder"**.
+3. Confirm the action in the prompt.
+4. Review the AI-generated merge groups:
+   - **Keep**: The suggested target tag.
+   - **Merge**: List of tags that will be absorbed.
+5. Click **"Merge This"** for specific groups, or **"Merge All"** to batch process.
+
+### ⚙️ Configuration
+- **API Key**: Enter your provider's API key in the plugin settings.
+- **Provider Settings**: Select your service (OpenAI, Local, or Custom Cloud).
+- **Merge Sensitivity**: Adjust the temperature in settings to make the AI more or least aggressive with merges.
+
+---
+
+## 🛠️ Development / 开发
+
+This plugin is built with TypeScript and utilizes the Obsidian API.
+
+```bash
+# Install dependencies
+npm install
+
+# Build for production
+npm run build
+```
+
+---
+
+## 📄 License / 许可证
+
+GPL-3.0 License. See [LICENSE](LICENSE) for details.
+
+---
+
+## 🤝 Support / 支持
+
+If you find this plugin helpful, consider giving it a ⭐ on GitHub! 
+如果你觉得这个插件有帮助，请在 GitHub 上点个 ⭐！
