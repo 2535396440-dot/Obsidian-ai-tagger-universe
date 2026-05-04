@@ -1,5 +1,4 @@
-# Obsidian AI Tagger Universe 🌌
-
+# Obsidian Tag AI Organizor
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://opensource.org/licenses/GPL-3.0)
 [![Obsidian Downloads](https://img.shields.io/badge/Obsidian-Plugin-purple.svg)](https://obsidian.md/)
 
@@ -9,7 +8,7 @@ An intelligent tag management system for Obsidian, powered by Large Language Mod
 
 ## 🌟 Key Features / 核心功能
 
-### 1. Smart Tag Deduplication (AI Merge) / AI 智能标签合并
+### 1. Smart Tag Deduplication (AI Merge) / AI 理解标签语义
 - **Semantic Analysis**: Unlike simple string matching, it understands that `#DeepLearning` and `#deep-learning` (or even `#深度学习`) might be meant as the same tag.
 - **Folder Scoping**: Run the analysis on a specific folder to handle domain-specific tags safely.
 - **Interactive Review**: Review AI suggestions in a clear, modern GUI before applying changes.
@@ -20,7 +19,7 @@ An intelligent tag management system for Obsidian, powered by Large Language Mod
 - Optimized API endpoint handling—no more manual URL hacking for non-OpenAI providers.
 - Custom temperature controls for merge sensitivity.
 
-### 3. Context-Aware Tagging / 上下文感知标签
+### 3. File name-Aware Tagging / 文件名感知标签
 - Uses **filename and adjacent tag context** during analysis to ensure merging logic respects the specific topics of your notes.
 - Hardened parsing logic to handle complex vault structures without performance bottlenecks.
 
