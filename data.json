@@ -3,7 +3,7 @@
   "localEndpoint": "http://localhost:11434/v1/chat/completions",
   "localModel": "mistral",
   "cloudEndpoint": "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
-  "cloudApiKey": "AIzaSyAkjRizBgMWmp4e-mHFaS-2VF5_Oa_RSm4",
+  "cloudApiKey": "",
   "cloudModel": "gemini-flash-latest",
   "cloudServiceType": "gemini",
   "llmTemperatureOverride": 0,
